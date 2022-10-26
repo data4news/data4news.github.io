@@ -32,7 +32,7 @@
 ### Bonus
 
   1. Make a fork of `my-simple-website`
-  2. Host the website on your own GitHub account. To do this, go to settings in your forked repo and [turn on GitHub pages](https://github.com/fivethirtyeight/learning-sessions/blob/master/github/github-intro.md#serving-up-websites). 
+  2. Host the website on your own GitHub account. To do this, go to settings in your forked repo and [turn on GitHub pages](https://github.com/data4news/data4news.github.io/blob/main/your-website.md). 
   
 ## In real life!
 
