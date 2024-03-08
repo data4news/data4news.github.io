@@ -1,23 +1,48 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <title>Tow Tea</title>
-    <link rel="stylesheet" type="text/css" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DataViz with ChatGPT Seminar</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>Welcome to Tow Tea ☕️ (Feb. 26, 2024)</h1>
-    <h2>Making Charts with ChatGPT.</h2>
-    <p>Today’s Slides: <a href='https://docs.google.com/presentation/d/1N-D6FyXuAtj6DUhy9q5Gh2r16RXtTtk4j426-oAsPpA'>https://docs.google.com/presentation/d/1N-D6FyXuAtj6DUhy9q5Gh2r16RXtTtk4j426-oAsPpA</a></p>
+    <main>
+        <section class="setup-instructions">
+            <h1>Welcome to the DataViz with ChatGPT Workshop 🤖</h1>
+            <p>Follow the steps below to get started:</p>
+            <ol>
+                <li>TKTKTKTK</li>
+                <li>TKTKTKTK</li>
+                <li>TKTKTKTK</li>
+            </ol>
+        </section>
+        <section class="example-prompt">
+            <h2>Example Prompt to Get You Started</h2>
+            <p>"I have a CSV file named <code>bills-with-embeddings.csv</code> with the following columns: State, Bill Number, Name, Summary, Bill Progress, Last Action, Action Date, keywords, embedding, x, y. Show me the code to make a scatterplot in D3 with a tooltip. Each dot should be placed at x,y. When a user hovers on the tooltip, they should see the Bill Number, Name, Last Action, and Action Date. And please add a search box that will let users filter by searching the Name column. Please provide the HTML, CSS and JS in separate files."</p>
+        </section>        
+        <section class="resources">
+            <h2>Example ChatGPT Conversations and Resources</h2>
+            <ul>
+                <li><a href="https://docs.google.com/presentation/d/1f3INfweSXUMEqRyKGkDSPE4a2WGoIPda_Hz_yckvQDk/edit?usp=sharing">Seminar Slides</a></li>
+                <li><a href="https://chat.openai.com/share/fe05729d-3374-4844-a5ab-cbd0595f8f57">Example Conversation 1 (D3) </a></li>
+                <li><a href="https://example.com/conversation2">Example Conversation 2 (D3)</a> (THIS IS BLANK, ADD SOMETHING HERE) </li>
+                <li><a href="https://chat.openai.com/share/d50e0641-2beb-4c26-b4c0-4f4592d255b4">Example Conversation 3 (ggplot) </a></li>
+            </ul>
+        </section>
+        
+        </section>
+        <section class="prompt-bank">
+            <h2>Submit Your Prompts</h2>
+            <p>Got an interesting prompt? Share it with our community!</p>
+            <button id="submitPromptBtn">Submit to Prompt Bank</button>
+        </section>
+    </main>
+    <footer>
+        <small>Website creation assisted by ChatGPT 🤖.</small><br/>
+        <small><a href="https://example.com/this-conversation">See the conversation!</a></small>
+    </footer>
 
-    <h2>Instructions</h2>
-    <p>We’ll be using Rstudio in the cloud today. Please do the following:</p>
-    <ol>
-    <li>Make an account at <a href="https://posit.cloud/">https://posit.cloud/</a></li>
-    <li>Click "New Project" > "New Project from Git Repostiory"</li>
-    <img src="Posit_Cloud.png"/>
-    <li>Enter the following repository: https://github.com/dmil/chatgpt-dataviz </li>
-    <img src="Posit_Cloud2.png"/>
-    <li>Install Tidyverse package</li>
-    <img src="Posit_Cloud3.png"/>
-    </ol>
+    <script src="script.js"></script>
 </body>
 </html>
