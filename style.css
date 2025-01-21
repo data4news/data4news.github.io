@@ -187,3 +187,26 @@ footer p {
         padding-top: calc(var(--header-height) + 30px); /* Ensure enough space */
     }
 }
+
+/* Callout Banner Styles */
+.callout {
+    background-color: #e7f3fe; /* Light blue background for subtlety */
+    color: #2c3e50; /* Darker text for readability */
+    padding: 12px 20px;
+    border-left: 4px solid #3498db; /* Blue accent border */
+    border-radius: 4px;
+    margin-bottom: 20px;
+    font-style: italic;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); /* Slight shadow for depth */
+}
+
+@media (max-width: 480px) {
+    .callout {
+        padding: 10px 15px;
+        font-size: 0.9rem;
+    }
+}
+
+.card ul {
+    margin-left: 2em;  /* or use padding-left: 2em; */
+}
