@@ -247,3 +247,9 @@ footer p {
         margin: 1em auto;
     }
 }
+
+main {
+    max-width: 800px;
+    margin: auto;
+    padding: 20px;
+  }
