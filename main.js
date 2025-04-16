@@ -81,8 +81,8 @@ document.addEventListener('DOMContentLoaded', function() {
         link.addEventListener('click', function(e) {
             e.preventDefault();
             const workshopName = this.getAttribute('data-workshop');
-            localStorage.setItem('selectedWorkshop', workshopName);
-            window.location.href = 'index.html';
+            // Navigate to URL with workshop parameter instead of using localStorage
+            window.location.href = `index.html?workshop=${encodeURIComponent(workshopName)}`;
         });
     });
     
@@ -90,13 +90,32 @@ document.addEventListener('DOMContentLoaded', function() {
     const mainElement = document.querySelector('main[workshop]');
     
     if (mainElement) {
-        // Check if we have a selected workshop from localStorage
-        const selectedWorkshop = localStorage.getItem('selectedWorkshop');
-        if (selectedWorkshop) {
-            // Update the workshop attribute with the selected workshop
-            mainElement.setAttribute('workshop', selectedWorkshop);
-            // Clear the storage item after using it
-            localStorage.removeItem('selectedWorkshop');
+        // Check if we have a workshop parameter in the URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const workshopParam = urlParams.get('workshop');
+        
+        // Update the workshop attribute with the parameter from URL if present
+        if (workshopParam) {
+            mainElement.setAttribute('workshop', workshopParam);
+            
+            // Update page title to include workshop name
+            document.title = `${workshopParam} | ${document.title}`;
+            
+            // Optional: Update browser history to have a cleaner URL path
+            if (history.pushState) {
+                history.pushState({workshop: workshopParam}, document.title, `/${workshopParam}/`);
+            }
+        } else {
+            // Backward compatibility: Check localStorage if URL param not present
+            const selectedWorkshop = localStorage.getItem('selectedWorkshop');
+            if (selectedWorkshop) {
+                mainElement.setAttribute('workshop', selectedWorkshop);
+                localStorage.removeItem('selectedWorkshop');
+                
+                // Redirect to the URL with parameter format for consistency
+                window.location.href = `index.html?workshop=${encodeURIComponent(selectedWorkshop)}`;
+                return;
+            }
         }
         
         // Continue with existing code to load workshop content
