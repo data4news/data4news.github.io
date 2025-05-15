@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AAPOR 2025</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px auto;
+            line-height: 1.6;
+            max-width: 900px;
+            font-size: 16px;
+            text-align: center;
+        }
+        h1 {
+            font-size: 36px;
+            margin-bottom: 30px;
+            color: #333;
+        }
+        .slides-container {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 aspect ratio */
+            height: 0;
+            overflow: hidden;
+            max-width: 800px;
+            width: 100%; /* Ensure full width is used */
+            margin: 0 auto 30px;
+        }
+        .slides-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 1px solid #ddd;
+        }
+        .presentation-link {
+            margin-top: 20px;
+            display: block;
+            font-size: 18px;
+        }
+        footer {
+            margin-top: 40px;
+            font-size: 14px;
+            color: gray;
+            border-top: 1px solid #eee;
+            padding-top: 15px;
+        }
+        
+        /* Ensure proper display when loaded from parent directory */
+        main[workshop="aapor-2025"] .slides-container {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 aspect ratio */
+            height: 0;
+            overflow: hidden;
+            max-width: 800px;
+            width: 100%;
+            margin: 0 auto 30px;
+        }
+        
+        main[workshop="aapor-2025"] .slides-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 1px solid #ddd;
+        }
+    </style>
+</head>
+<body>
+    <h1>AAPOR 2025</h1>
+    
+    <div class="slides-container">
+        <iframe src="https://docs.google.com/presentation/d/1YP23RNRCXIXJWRQ3LbCGJh7KoRjWwTXTEF93wSMd33o/embed" 
+                frameborder="0" 
+                allowfullscreen="true" 
+                mozallowfullscreen="true" 
+                webkitallowfullscreen="true">
+        </iframe>
+    </div>
+    
+    <a href="https://docs.google.com/presentation/d/1YP23RNRCXIXJWRQ3LbCGJh7KoRjWwTXTEF93wSMd33o/edit#slide=id.g358c56806ec_2_6" 
+       class="presentation-link" 
+       target="_blank">
+        View Presentation in Google Slides
+    </a>
+    
+    <footer>
+        © 2025 AAPOR Presentation
+    </footer>
+</body>
+</html>
