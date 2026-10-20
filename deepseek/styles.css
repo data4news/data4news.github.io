@@ -48,3 +48,13 @@ footer {
   overflow: auto; /* Ensures long text can be scrolled horizontally */
   white-space: pre-wrap; /* Keeps the formatting of the prompt but wraps text */
 }
+
+.setup-instructions li {
+  margin-bottom: 20px;
+}
+
+.setup-instructions img {
+  max-width: 100%;
+  height: auto;
+  margin-top: 10px;
+}
