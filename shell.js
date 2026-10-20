@@ -1,10 +1,10 @@
 // shell.js
-// Adds the data4news.com top bar to workshop pages that live in their own repos.
+// Adds the data4news.com top bar and footer to workshop pages that live in their own repos.
 // Include it in a workshop page's <head> with:
 //   <script src="/shell.js" defer></script>
 
 (function () {
-    // The homepage and previous.html already have the bar.
+    // The homepage and previous.html already have the bar and footer.
     if (document.querySelector('header .site-title')) return;
 
     const font = document.createElement('link');
@@ -12,7 +12,7 @@
     font.href = 'https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap';
     document.head.appendChild(font);
 
-    // Matches the header styles in style.css, scoped so they don't touch the workshop's own styles.
+    // Matches the header and footer styles in style.css, scoped so they don't touch the workshop's own styles.
     const style = document.createElement('style');
     style.textContent = `
         .d4n-topbar {
@@ -67,7 +67,32 @@
         .d4n-topbar a.d4n-link:hover {
             color: #1d6fa5;
         }
+        .d4n-footer {
+            position: fixed;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            height: 60px;
+            box-sizing: border-box;
+            padding: 20px 0;
+            text-align: center;
+            background-color: #f8f8f8;
+            border-top: 1px solid #e7e7e7;
+            z-index: 1000;
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.6;
+        }
+        .d4n-footer p {
+            margin: 0;
+            font-size: 0.9rem;
+            color: #777777;
+        }
         @media (max-width: 768px) {
+            .d4n-footer {
+                position: relative;
+                height: auto;
+                margin-top: 20px;
+            }
             .d4n-topbar {
                 flex-direction: column;
                 align-items: flex-start;
@@ -109,15 +134,30 @@
         </nav>
     `;
 
+    const footer = document.createElement('footer');
+    footer.className = 'd4n-footer';
+    footer.innerHTML = `
+        <p>
+            Made by Dhrumil <a href="https://chatgpt.com/share/678f4c65-c928-8010-ba8d-b9a87b6d2483" target="_blank" rel="noopener noreferrer"> with the help of ChatGPT</a> in Jan 2025 🤖.
+        </p>
+    `;
+
     function mount() {
         document.body.prepend(header);
-        // Keep the page content clear of the fixed bar.
-        const basePadding = parseFloat(getComputedStyle(document.body).paddingTop) || 0;
+        document.body.append(footer);
+        // Keep the page content clear of the fixed bar and footer.
+        const bodyStyle = getComputedStyle(document.body);
+        const basePaddingTop = parseFloat(bodyStyle.paddingTop) || 0;
+        const basePaddingBottom = parseFloat(bodyStyle.paddingBottom) || 0;
         const adjustPadding = () => {
-            document.body.style.paddingTop = `${header.offsetHeight + basePadding + 20}px`;
+            document.body.style.paddingTop = `${header.offsetHeight + basePaddingTop + 20}px`;
+            const footerIsFixed = getComputedStyle(footer).position === 'fixed';
+            document.body.style.paddingBottom = `${(footerIsFixed ? footer.offsetHeight : 0) + basePaddingBottom}px`;
         };
         adjustPadding();
-        new ResizeObserver(adjustPadding).observe(header);
+        const observer = new ResizeObserver(adjustPadding);
+        observer.observe(header);
+        observer.observe(footer);
     }
 
     if (document.body) {
