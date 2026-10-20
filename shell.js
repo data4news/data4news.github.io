@@ -138,7 +138,7 @@
     footer.className = 'd4n-footer';
     footer.innerHTML = `
         <p>
-            Made by Dhrumil <a href="https://chatgpt.com/share/678f4c65-c928-8010-ba8d-b9a87b6d2483" target="_blank" rel="noopener noreferrer"> with the help of ChatGPT</a> in Jan 2025 🤖.
+            The data4news.com website was made by Dhrumil <a href="https://chatgpt.com/share/678f4c65-c928-8010-ba8d-b9a87b6d2483" target="_blank" rel="noopener noreferrer"> with the help of ChatGPT</a> in Jan 2025 🤖.
         </p>
     `;
 
