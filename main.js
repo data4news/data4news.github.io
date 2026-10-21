@@ -10,8 +10,8 @@ window.addEventListener('resize', adjustPadding);
 
 // Add this function to fix relative URLs
 function fixRelativeUrls(element, workshopName) {
-    // Fix URLs in elements with src, href, or srcset attributes
-    const elementsWithUrls = element.querySelectorAll('[src], [href], [srcset]');
+    // Fix URLs in elements with src, href, srcset, or action attributes
+    const elementsWithUrls = element.querySelectorAll('[src], [href], [srcset], [action]');
     elementsWithUrls.forEach(el => {
         // Handle src attribute
         if (el.hasAttribute('src')) {
@@ -26,6 +26,14 @@ function fixRelativeUrls(element, workshopName) {
             const href = el.getAttribute('href');
             if (href && !href.match(/^(https?:\/\/|\/|#|data:|mailto:)/)) {
                 el.setAttribute('href', `/${workshopName}/${href}`);
+            }
+        }
+        
+        // Handle action attribute (forms)
+        if (el.hasAttribute('action')) {
+            const action = el.getAttribute('action');
+            if (action && !action.match(/^(https?:\/\/|\/|#|data:|mailto:)/)) {
+                el.setAttribute('action', `/${workshopName}/${action}`);
             }
         }
         
